@@ -22,7 +22,7 @@ kind: Pod
 metadata:
   name: nginx-service
   labels:
-    project: Roboshop
+    project: roboshop
     component: nginx
     
 spec:
