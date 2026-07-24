@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: Config-pod
+  name: Configpod
   labels:
     project: roboshop
     environ: dev
