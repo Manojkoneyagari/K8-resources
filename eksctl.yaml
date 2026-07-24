@@ -1,4 +1,5 @@
 # eksctl create cluster --config-file=eksctl.yaml
+# aws eks update-kubeconfig --name roboshop --region us-east-1
 
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
@@ -9,7 +10,9 @@ metadata:
 
 managedNodeGroups:
   - name: managed
-    instanceTypes: ["c3.large","c4.large","c5.large","c5d.large","c5n.large","c5a.large"]
+    instanceTypes: t3.small
     desiredCapacity: 2
-    spot: true
+
+
+
 
