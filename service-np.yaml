@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service 
 metadata: 
-  name: service 
+  name: service-np 
   labels: 
     project: roboshop
     env: dev
@@ -16,3 +16,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+      nodePort: 30027
