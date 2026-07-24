@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annot
+  labels:
+    project: roboshop
+    environment: dev
+  annotations:
+    purpose: "We created this pod for testing annotations. Kindly disregard alerts"
+spec:
+  containers:
+    - name: nginx
+      image: nginx
