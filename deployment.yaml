@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: deployment 
+  labels:
+    project: roboshop
+    purpose: nginx 
+
+spec:
+  replicas: 3
+  selector:
+    matchLables:
+      project: roboshop
+      env: dev
+  
+  template:
+    metadata:
+      name: nginx
+      labels:
+        project: roboshop
+        env: dev
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          resources:
+            requests:
+              cpu: "120m"
+              memory: "150Mi"
+            limits:
+              cpu: "150m"
+              memory: "150Mi"
+
+
+---
+apiVersion: v1
+kind: Service 
+metadata:
+  name: service 
+  labels:
+    project: roboshop
+    purpose: service
+spec:
+  selector:
+    project: roboshop
+    env: dev
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+
+
