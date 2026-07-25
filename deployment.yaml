@@ -15,21 +15,20 @@ spec:
   
   template:
     metadata:
-      name: nginx
       labels:
         project: roboshop
         env: dev
     spec:
       containers:
-        - name: nginx
-          image: nginx
-          resources:
-            requests:
-              cpu: "120m"
-              memory: "150Mi"
-            limits:
-              cpu: "150m"
-              memory: "150Mi"
+      - name: nginx
+        image: nginx
+        resources:
+          requests:
+            cpu: "120m"
+            memory: "150Mi"
+          limits:
+            cpu: "150m"
+            memory: "150Mi"
 
 
 ---
