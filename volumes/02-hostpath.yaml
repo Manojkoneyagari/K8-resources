@@ -1,0 +1,49 @@
+apiVersion: v1 
+kind: Deployment 
+metadata: 
+  name: deploy-hostpath
+  labels:
+    project: roboshop
+    purpose: hostpath 
+  
+spec: 
+  replicas: 2
+  selectors:
+    matchLabels:
+      project: roboshop
+      env: dev
+
+  template:
+    metadata: 
+      name: pods-nginx
+      labels:
+        project: roboshop
+        env: dev
+    
+    spec: 
+      containers:
+      - name: nginx
+        image: nginx
+        resources:
+          requests: 
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "150Mi"
+            cpu: "150m"
+
+        
+        volumeMounts:
+          - name: host-volume
+            mountPath: /usr/share/nginx/html
+
+    
+      volumes:  
+      - name: host-volume
+        hostPath:
+          path: /data/common
+          type: DirectoryorCreate
+
+  
+
+ 
